@@ -1,0 +1,50 @@
+use student
+create table tblParents(p_id int PRIMARY KEY, p_name varchar(255),city varchar(255),age int,annual_in int, occupation varchar(255),email_id varchar(255));
+insert into tblParents (p_id,p_name,city,age,annual_in,occupation,email_id) values
+	(1,'obama','newyork',80,50000,'Prime Minister','obama@gmail.com'),
+    (2,'rinshu','indranagar',22,2000,'Engineer','rinshu@gmail.com'),
+    (3,'prajyot','mulund',21,1000,'Hacker','pra@gmail.com'),
+    (4,'sahil','bhandup',25,500,'Developer','sahi@gmail.com'),
+    (5,'ankit','indranagar',60,8000,'Developer','ank@gmail.com'),
+    (6,'krishna','indranagar',22,9000,'Boxer','krish@gmail.com'),
+	(7,'jash','mulund',21,4000,'Minister','jash@gmail.com'),
+    (8,'shivam','mulund',60,100,'CEO','shiv@gmail.com'),
+    (9,'ramesh','thane',17,9000,'SPO','ram@gmail.com'),
+	(10,'dimple','america',15,6000,'Hacker','dimp@gmail.com')
+select * from tblParents;
+
+update tblParents set email_id = 'NA' where p_id >= 1;
+
+select count(*) from tblParents where annual_in > 10000
+
+select * from tblParents where city in ('Ahmedabad','Delhi','Mumbai','Chennai','Banglore');
+
+select * from tblParents where age >45 or annual_in > 5000;
+
+
+create table Company(company_Id int PRIMARY KEY,company_name varchar(255),company_city varchar(255));
+insert into Company (company_Id,company_name,company_city)
+	values (1,'Dominos','Los Angeles'),
+    (2,'Pizza Hut','San Francisco'),
+    (3,'Papa Joins','San Deigo'),
+    (4,'Ah Pizz','Fremont'),
+    (5,'Nino Pizza','Las Vegas'),
+    (6,'Pizzeria','Boston'),
+    (7,'Chunck e cheese','Chicago');
+
+create table Items(item_id int PRIMARY KEY, item_name varchar(255), units_sold int, company_Id int);
+
+insert into Items (item_id,item_name,units_sold,company_Id) values
+	(1,'Large Pizza',5,2),
+    (2,'Garlic Knots',6,3),
+    (3,'Large Pizza',3,3),
+    (4,'Medium Pizza',8,4),
+    (5,'Breadsticks',7,1),
+    (6,'Medium Pizza',11,1),
+    (7,'Small Pizza',9,6),
+    (8,'Small Pizza',6,7);
+    
+select c.company_name,c.company_city,i.item_name,i.units_sold from Company c JOIN Items i where c.company_Id = i.company_Id; 
+
+
+
